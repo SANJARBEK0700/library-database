@@ -1,0 +1,58 @@
+--CREATE TABLE IF NOT EXISTS users (
+--    id SERIAL PRIMARY KEY,
+--    full_name VARCHAR(100) NOT NULL,
+--    email VARCHAR(100) UNIQUE NOT NULL,
+--    password TEXT NOT NULL,
+--    password TEXT NOT NULL,
+--    created_at TIMESTAMP DEFAULT NOW()
+--);
+--
+--CREATE TABLE IF NOT EXISTS authors (
+--    id SERIAL PRIMARY KEY,
+--    full_name VARCHAR(100) NOT NULL,
+--    country VARCHAR(100) NOT NULL
+--);
+--
+--CREATE TABLE IF NOT EXISTS genres (
+--    id SERIAL PRIMARY KEY,
+--    name VARCHAR(50) NOT NULL
+--);
+--
+--CREATE TABLE IF NOT EXISTS books (
+--    id SERIAL PRIMARY KEY,
+--    title VARCHAR(150) NOT NULL,
+--    author_id INTEGER REFERENCES authors(id),
+--    description TEXT,
+--    published_year INTEGER,
+--    genre_id INTEGER REFERENCES genres(id),
+--    created_at TIMESTAMP DEFAULT NOW()
+--);
+--
+--CREATE TABLE IF NOT EXISTS comments (
+--    id SERIAL PRIMARY KEY,
+--    user_id INTEGER REFERENCES users(id),
+--    book_id INTEGER REFERENCES books(id),
+--    content TEXT NOT NULL,
+--    created_at TIMESTAMP DEFAULT NOW()
+--);
+--
+--SELECT *
+--FROM books
+--ORDER BY published_year;
+--
+--SELECT g.name, COUNT(b.id)
+--FROM genres g
+--LEFT JOIN books b ON g.id = b.genre_id
+--GROUP BY g.name;
+--
+--SELECT b.*
+--FROM books b
+--LEFT JOIN comments c ON b.id = c.book_id
+--WHERE c.id IS NULL;
+--
+--SELECT b.title, COUNT(c.id)
+--FROM books b
+--JOIN comments c ON b.id = c.book_id
+--GROUP BY b.title
+--ORDER BY COUNT(c.id) DESC
+--LIMIT 5;
